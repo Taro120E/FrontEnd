@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            /* background-color: black; */
+        }
+      
+        fieldset{
+           
+            margin:150px 0px 20px 500px;
+            padding: 20px 20px 50px 20px;
+            width:400px;
+            
+        }
+        .d1{
+            padding: 30px 20px 30px 20px;
+            border-bottom: 1px solid black; 
+        }
+        .d2{
+            padding: 50px 20px 60px 20px;
+            border-bottom: 1px solid black; 
+        }
+        .d3{
+            padding: 50px 20px 60px 20px;
+            border-bottom: 1px solid black; 
+        }
+    </style>
+
+    </head>
+    <body>
+        <fieldset>
+            <div class="d1">
+                <label class ="t1" for="name">姓名:</label>
+                <input type="text" id="name" name="in1" value="guest">
+                <p>1.不可空白 2.至少兩個字以上 3.必須全為中文</p>
+            </div>
+            <div class="d2">
+                <label class="t1" for="psw">密碼:</label>
+                <input type="password" id="psw" name="in2" maxlength="6">
+                <p>1.不可空白 2.至少六個字必須包含英數字 3.必須全為中文</p>
+            </div>
+            <div class="d3">
+                <label class ="t1" >日期:</label>
+                <input type="text" name="in3" size=30>
+
+            </div>
+        </fieldset>
+
+        <script>
+            
+
+        </script>
+
+    </body>
+</html>

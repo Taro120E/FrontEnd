@@ -1,0 +1,27 @@
+h1.a1{ color: orange;
+
+}
+.a2{
+    color:blue;
+}
+.co1{
+    color: grey;
+}
+.co2{
+    color: red;
+}
+.size1{
+    font-size:3em; 
+}
+.style1{
+    font-style: italic; 
+}
+.ul1{
+    text-decoration: underline; 
+}
+.weight1{
+    font-weight:700; 
+}
+#the1{
+    color:brown;
+}

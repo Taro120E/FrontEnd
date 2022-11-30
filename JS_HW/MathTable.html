@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            background-color: black;
+        }
+        table{
+            margin:200px 250px 250px 200px; 
+            border-collapse: collapse;
+            background-color: black;
+            color:white;
+            
+        }
+        td:hover{
+            background-color: white;
+            color:black;
+        }
+        
+
+         td{
+            border: 1px solid white; 
+            width:70px; height: 10px;
+            padding:20px;
+
+        }
+        
+    </style>
+</head>
+<body>
+    <table id="ta">
+    </table>    
+    <script>
+
+        var A = document.getElementById("ta");
+        A.innerHTML= "<Caption><h1>DO IT</h1></Caption>"
+        var str = "<tbody>";
+        var tr = "<tr>"
+        var tbody= "<tbody>"
+        for ( var i = 1 ; i <= 9 ; i ++){
+             str += "<tr>";
+            for (var n = 1 ; n <=9 ; n ++){
+                str+= "<td>" ; 
+                    str+= ` ${i} x ${n} = ` + i*n;
+                    str+= "</td>" ; 
+            }
+            str+="</tr>";  
+        }
+        str+= "</tbody>"; 
+        A.innerHTML+=str;
+
+
+
+
+    </script>
+</body>
+</html>
