@@ -6,15 +6,29 @@
 </head>
 
 <body>
-    <!--HTML屬性事件處理程序-->
-   
 
-    <!-- JavaScript屬性事件處理程序 -->
-    
+    <!-- Method 1 -->
+   <h1 onclick="f1()">1</h1>
+   <h1 id ="2">2</h1>
+   <h1 id ="3">3</h1>
 
-    <!-- W3C DOM 事件處理程序 -->
     <script>
+        function f1(){
+            alert("you just cick 1")
+        }
+        //Method 2
+        function f2(){
+            alert("you just cick 2")
+        }
+        document.getElementById("2").onclick=f2;
+
+        //Method  3
+        function f3(){
+            alert("you just cick 3")
+        }
         
+        document.getElementById("3").addEventListener("click" , f3);
+
     </script>
 </body>
 </html>

@@ -16,7 +16,12 @@
             alert("method 3");
         } 
         
-        function init(){
+    
+
+        
+        // window.onload=init;
+        // document.addEventListener("DOMContentLoaded", load);
+        document.addEventListener("DOMContentLoaded", function(){
             document.getElementById("m2").onclick=f2; 
             document.getElementById("m2").onclick=function() {
                 alert("method 2x");
@@ -25,10 +30,11 @@
             document.getElementById("m3").addEventListener("click",function() {
                 alert("method 3x");
             });
-        }
 
-        
-        window.onload=init;
+        });
+
+
+
     </script>
 </head>
 <body>
