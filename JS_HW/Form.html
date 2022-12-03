@@ -7,39 +7,60 @@
     <title>Document</title>
     <style>
         *{
+            margin:0px;
+            padding:0px;
             /* background-color: black; */
         }
       
         fieldset{
            
-            margin:100px 0px 20px 500px;
-            padding: 20px 20px 50px 20px;
-            width:400px;
+            margin:20px;
+            padding: 20px;
+            width:500px;
+            background-color: blue;
+            border:5px solid red;  /* change to white*/
+            
+        }
+        .div1{
+            margin:10px;
+            padding: 35px 80px 60px 80px ;
+            width:300px; height: 80px;
+            border: 3px solid black; 
+            background-color: white;
+
+        }
+        .div2{
+            margin:10px;
+            padding: 35px 80px 120px 80px ;
+            width:300px; height: 80px;
+            border: 3px solid black; 
             background-color: white;
         }
-        .d1{
-            padding: 30px 20px 30px 20px;
-            border-bottom: 1px solid black; 
+        .div3{
+            margin:10px;
+            padding: 35px 80px 30px 80px ;
+            width:300px; height: 80px;
+            border: 3px solid black; 
             background-color: white;
         }
-        .d2{
-            padding: 50px 20px 60px 20px;
-            border-bottom: 1px solid black;
-            background-color: white; 
+        .divin{
+            margin-top : 20px; 
+            border-bottom: 2px solid black;
+            
+
         }
-        .d3{
-            padding: 50px 20px 60px 20px;
-            border-bottom: 1px solid black; 
-            background-color: white;
-        }
+        
+        
         .t1{
             color:black;
             background-color: white;
             
         }
         p{
-            color:#85929E;
+            color:grey;
             font-size: 14px; 
+            font-weight:500;
+            padding-top:10px;
             background-color: white;
         }
         input{
@@ -48,34 +69,214 @@
         legend{
             color:white; 
             text-align: center;
-            font-size:50; 
+            font-size:70; 
         }
+        label{
+
+            padding-left: 24px;    
+            /* border:1px solid black; */
+        }
+        .span1{
+            font-size:11px;
+            padding-left:65px;
+        }
+        .span2{
+            font-size:11px;
+            padding-left:65px;
+        }
+        .span3{
+            font-size:11px;
+            padding-left:65px;
+        }
+        
     </style>
 
     </head>
     <body>
         
         <fieldset><legend>Form</legend>
-            <div class="d1">
-                <label class ="t1" for="name">姓名:</label>
-                <input type="text" id="name" name="in1" value="guest">
-                <p>1.不可空白 2.至少兩個字以上 3.必須全為中文</p>
+            <!-- 姓名 -->
+            <div class="div1">
+                <label class ="t1" for="name" >姓名:</label>
+                <input type="text" id="name" name="in1" onkeyup="nameCheck1(this.value)"></br>
+                <span class ="span1" id="span1"></span>
+                <p>
+                    <label class="nameCheckClass" >不可空白</label><br/>
+                    <label class="nameCheckClass" >兩個字以上</label><br/>
+                    <label class="nameCheckClass" >必須全為中文字</label><br/>
+                </p>
+                <div class="divin"></div>
             </div>
-            <div class="d2">
+
+            <!-- 密碼 -->
+            <div class="div2">
                 <label class="t1" for="psw">密碼:</label>
-                <input type="password" id="psw" name="in2" maxlength="6">
-                <p>1.不可空白 2.至少六個字必須包含英數字 3.必須全為中文</p>
+                <input type="text" id="ps" name="in2" onkeyup="passCheck1(this.value)"></br>
+                <span class="span2" id="span2"></span>
+                <p>
+                    <label class="passwordCheck">6個字以上</label> <br/>
+                    <label class="passwordCheck">至少一個大寫英文字母</label><br/>
+                    <label class="passwordCheck">至少一個小寫英文字母</label><br/>
+                    <label class="passwordCheck">至少一個數字</label><br/>
+                    <label class="passwordCheck">至少一個特殊字元</label><br/>
+                    <div class="divin"></div>
+                </p>
             </div>
-            <div class="d3">
+
+            <!-- 日期 -->
+            <div class="div3">
                 <label class ="t1" >日期:</label>
-                <input type="text" name="in3" size=30>
-                <p>格式:西元年/月/日(yyyy-mm--dd)</p>
+                <input type="text" id= "date" name="in3" size=19 ></br> 
+                <!-- onkeyup="dateCheck1(this.value)" -->
+                <span class = "span3"></span>
+                <p>
+                    <label class="dateCheckClass">格式:西元年/月/日(yyyy-mm--dd)</label>
+                </p>
+
+                <div class="divin"></div>
 
             </div>
         </fieldset>
 
-        <script>
-            
+        <script type="text/javascript">
+            document.getElementById("name").addEventListener("blur", nameCheck2); 
+            document.getElementById("ps").addEventListener("blur", passCheck2); 
+            document.getElementById("date").addEventListener("blur", dateCheck2); 
+
+
+            // Check Name
+            function nameCheck1(data) {
+
+                var nameClass = document.getElementsByClassName("nameCheckClass"); 
+                let E = new RegExp(  '(?=.{1,})' );
+                let L = new RegExp(  '(?=.{2,})' );
+                    //輸入中文 Unicode
+                // let C = new RegExp('^[\u4E00-\u9FA5]{2,}$');  
+                
+                
+                if(E.test(data)){
+                    nameClass[0].style.color="green"; 
+                }else{
+                    nameClass[0].style.color="grey";
+                }
+                if(L.test(data)){
+                    nameClass[1].style.color="green"; 
+                }else{
+                    nameClass[1].style.color="grey";
+                }
+                    // 中文驗證
+                // if(C.test(data)){
+                //     nameClass[2].style.color="green"; 
+                // }else{
+                //     nameClass[2].style.color="grey";
+                // }
+                
+                
+            }
+            function nameCheck2(){
+                let span = document.getElementById("span1")
+                let nameCon = document.getElementById("name"); 
+                let NameVal = nameCon.value; 
+                let E = new RegExp(  '(?=.{1,})' );
+                let L = new RegExp(  '(?=.{2,})' );
+                if (E.test(NameVal) && L.test(NameVal) ){
+                    span.innerHTML= "You're User Name is valid";
+                }else{
+                    span.innerHTML= "Please re-consider your User Name";
+
+                }
+            }
+
+            // Check Password
+            function passCheck1(data){
+                var passClass = document.getElementsByClassName("passwordCheck");
+                let L = new RegExp( '(?=.{6,})' );
+                let UC = new RegExp( '(?=.*[A-Z])' );
+                let LC = new RegExp( '(?=.*[a-z])' );
+                let N = new RegExp( '(?=.*[0-9])' );
+                let S = new RegExp( '(?=.*[!@#\$%\^&\*])' );
+
+                if(L.test(data)){
+                    passClass[0].style.color = "green"; 
+                }else{
+                    passClass[0].style.color = "grey"; 
+                }
+                if(UC.test(data)){
+                    passClass[1].style.color = "green"; 
+                }else{
+                    passClass[1].style.color = "grey"; 
+                }
+                if(LC.test(data)){
+                    passClass[2].style.color = "green"; 
+                }else{
+                    passClass[2].style.color = "grey"; 
+                }
+                if(N.test(data)){
+                    passClass[3].style.color = "green"; 
+                }else{
+                    passClass[3].style.color = "grey"; 
+                }
+                if(S.test(data)){
+                    passClass[4].style.color = "green"; 
+                }else{
+                    passClass[4].style.color = "grey"; 
+                }
+            }
+            function passCheck2(){
+                let span = document.getElementById("span2")
+                let pasCon = document.getElementById("ps");
+                let pasVal = pasCon.value; 
+                let L = new RegExp( '(?=.{6,})' );
+                let UC = new RegExp( '(?=.*[A-Z])' );
+                let LC = new RegExp( '(?=.*[a-z])' );
+                let N = new RegExp( '(?=.*[0-9])' );
+                let S = new RegExp( '(?=.*[!@#\$%\^&\*])' );
+                if (L.test(pasVal) && UC.test(pasVal) && LC.test(pasVal)
+                && N.test(pasVal) && S.test(pasVal)){
+                    span.innerHTML= "You're password is valid";
+                }else{
+                    span.innerHTML= "Please re-consider your password";
+
+                }
+                
+                
+          
+            }
+
+
+            // Check Date
+
+            // function dateCheck1(data){
+
+            //     // var dateClass= document.getElementsByClassName("dateCheckClass");
+            //     // let d = new RegExp( '(?=.{6,})' );
+
+            //     // if(d.test(data)){
+            //     //     dateClass[0].style.color="green";
+            //     // }else{
+            //     //     dateClass[0].style.color="grey";
+            //     // }
+
+            // }
+
+            function dateCheck2(){
+
+                let span = document.getElementById("span3"); 
+                let dateCon = document.getElementById("date");
+                let ddate = dateCon.value; 
+
+                // 輸入與輸出一樣 為什麼顯示No? 
+                let dd = new Date(ddate); 
+                console.log(dd)
+                let ddcon = console.log(dd);
+                if(dd==ddcon){
+                    console.log("OK")
+                }else{
+                    console.log("No");
+                }
+
+            }
+
 
         </script>
 
