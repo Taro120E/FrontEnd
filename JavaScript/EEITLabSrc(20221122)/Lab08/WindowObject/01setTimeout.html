@@ -7,18 +7,29 @@
 </head>
 <body>    
 	<input type="button" id="idbutstop" value="停止轉向連結" />
+	<input type="button" id="idbut" value="轉向連結" />
     <script>
         function stopf() {
                 //window.clearTimeout-停止計時器            
 
         }
 
+        function f(){
+            location.href = "https://www.ispan.com.tw"
+        }
+
         //轉向連結到 https://www.ispan.com.tw
         //slide105,location.href-轉向連結到其它網址
 
+        let t = window.setTimeout(f, 2000);
+        function stop(){
+            window.clearTimeout(t); 
+        }
 
 
-        document.getElementById("idbutstop").addEventListener("click", stopf);  //事件繫結      
+
+        document.getElementById("idbutstop").addEventListener("click", stop);  //事件繫結    
+        document.getElementById("idbut").addEventListener("click",f);  
     </script>
 </body>
 </html>

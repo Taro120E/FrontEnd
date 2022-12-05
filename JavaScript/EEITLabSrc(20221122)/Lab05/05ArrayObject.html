@@ -7,10 +7,23 @@
 <body>
     <script>
         //Array 物件
+        let balls = ["ball 1" , "ball 2" , "ball 3" , 120];
+        console.log(balls);
+        console.log("=======================")
+        for ( let call of balls){
+            console.log(call);
+        }
 
 
         
-        //let myfoods = [["apple", "banana", "grape"], ["pork", "beef"]];
+        let foods = [["apple", "banana", "grape"], ["pork", "beef"]];
+
+        for (i of foods){
+            for(n of i){
+                console.log(n);
+            }
+        }
+
         // for (let i = 0, maxi = myfoods.length; i < maxi; i++) {
         //     for (let j = 0, maxj = myfoods[i].length; j < maxj; j++) {
         //         console.log(myfoods[i][j]);

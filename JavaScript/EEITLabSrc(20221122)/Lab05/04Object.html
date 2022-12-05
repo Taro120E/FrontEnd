@@ -7,9 +7,30 @@
 <body>
     <div id="myDiv"></div>
     <script>
+      function f(){
+            return `${this.brand} , ${this.speed}, ${this["ok ok"]}`;
+        }
     
-    
+    let cars = {
+        brand : "Nissan Altima- Midnight Edition",
+        Color : "Red",
+        speed  : 120,
+        "ok ok": "Bang Bang", 
+        disf: f,
+    }
 
+    console.log(cars);
+    console.log(cars["ok ok"]);
+    console.log(cars.disf());
+    console.log("==================");
+
+
+    let mydiv = document.getElementById("myDiv")
+    for ( let prop in cars){
+        console.log(prop);
+        console.log(cars[prop]);
+        mydiv.innerHTML += `<li>cars["${prop}"]=${cars[prop]}</li>`;
+    }
     //for..in
 
     

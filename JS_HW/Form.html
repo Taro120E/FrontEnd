@@ -126,11 +126,13 @@
             <!-- 日期 -->
             <div class="div3">
                 <label class ="t1" >日期:</label>
-                <input type="text" id= "date" name="in3" size=19 ></br> 
-                <!-- onkeyup="dateCheck1(this.value)" -->
-                <span class = "span3"></span>
+                <input type="text" id= "date" name="in3" size=19 
+                onkeyup="dateCheck1(this.value), dateCheck3(this.value)"></br> 
+
+                <span id = "span3" class = "span3"></span>
                 <p>
-                    <label class="dateCheckClass">格式:西元年/月/日(yyyy-mm--dd)</label>
+                    <label class="dateCheckClass">格式:西元年/月/日(yyyy/mm/dd)</label><br/>
+                    <label class="dateCheckClass">你輸入的日期實際存在</label>
                 </p>
 
                 <div class="divin"></div>
@@ -151,7 +153,7 @@
                 let E = new RegExp(  '(?=.{1,})' );
                 let L = new RegExp(  '(?=.{2,})' );
                     //輸入中文 Unicode
-                // let C = new RegExp('^[\u4E00-\u9FA5]{2,}$');  
+                let C = new RegExp('^[\u4E00-\u9FFF]{2,}$');  
                 
                 
                 if(E.test(data)){
@@ -165,11 +167,11 @@
                     nameClass[1].style.color="grey";
                 }
                     // 中文驗證
-                // if(C.test(data)){
-                //     nameClass[2].style.color="green"; 
-                // }else{
-                //     nameClass[2].style.color="grey";
-                // }
+                if(C.test(data)){
+                    nameClass[2].style.color="green"; 
+                }else{
+                    nameClass[2].style.color="grey";
+                }
                 
                 
             }
@@ -245,39 +247,87 @@
 
 
             // Check Date
+            // 2022/01/20
+            function dateCheck1(data){
+                var dateClass = document.getElementsByClassName("dateCheckClass");
+                let d =/^\d{4}\/\d{2}\/\d{2}$/
 
-            // function dateCheck1(data){
+                if(d.test(data)){
+                    dateClass[0].style.color="green";
+                }else{
+                    dateClass[0].style.color="grey";
+                }
 
-            //     // var dateClass= document.getElementsByClassName("dateCheckClass");
-            //     // let d = new RegExp( '(?=.{6,})' );
-
-            //     // if(d.test(data)){
-            //     //     dateClass[0].style.color="green";
-            //     // }else{
-            //     //     dateClass[0].style.color="grey";
-            //     // }
-
-            // }
+            }
 
             function dateCheck2(){
 
                 let span = document.getElementById("span3"); 
                 let dateCon = document.getElementById("date");
-                let ddate = dateCon.value; 
 
-                // 輸入與輸出一樣 為什麼顯示No? 
-                let dd = new Date(ddate); 
-                console.log(dd)
-                let ddcon = console.log(dd);
-                if(dd==ddcon){
-                    console.log("OK")
-                }else{
-                    console.log("No");
+                //輸入的date
+                let d =/^\d{4}\/\d{2}\/\d{2}$/
+                let ddate = dateCon.value; 
+                // console.log(ddate); 
+
+
+                if(d.test(ddate)){  //如果日期格是正確
+
+                    //驗證輸入與Console是否一樣
+                    let dd = new Date(ddate); 
+                    // console.log(dd) 
+                    let ddYear = dd.getFullYear();
+                    let ddMonth = dd.getMonth()+1;
+                    let ddDate = dd.getDate();
+                    
+                    if (ddMonth <10){
+                        ddMonth = `0${ddMonth}`;
+                    }
+                    if(ddDate <10){
+                        ddDate = `0${ddDate}`; 
+                    }
+                    let datetoS = ddYear+ "/"+ddMonth + "/" + ddDate; 
+                    // console.log(datetoS);
+
+                    if(ddate ==datetoS){
+                        span.innerHTML="Your date is valied";
+                    }else {
+                        span.innerHTML="Date aint Exit";
+                    }       
+                }else  {
+                    span3.innerHTML="Please check your date";
                 }
+            }
+            //  2022/02/31
+            function dateCheck3(data){
+                var dateClass = document.getElementsByClassName("dateCheckClass");
+
+                let date1 = new Date(date); 
+                    // console.log(dd) 
+                    let ddYear = date1.getFullYear();
+                    let ddMonth = date1.getMonth()+1;
+                    let ddDate = date1.getDate();
+                    
+                    if (ddMonth <10){
+                        ddMonth = `0${ddMonth}`;
+                    }
+                    if(ddDate <10){
+                        ddDate = `0${ddDate}`; 
+                    }
+                    let datetoS = ddYear+ "/" + ddMonth + "/" + ddDate; 
+                    console.log(datetoS);
+
+                    if(date ==datetoS ){
+                        dateClass[1].style.color="green";
+                    }else {
+                        dateClass[1].style.color="grey";
+                    }
+
+               
 
             }
 
-
+            
         </script>
 
     </body>
