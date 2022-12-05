@@ -9,24 +9,27 @@
         *{
             margin:0px;
             padding:0px;
-            /* background-color: black; */
+            background-color: black;
         }
       
         fieldset{
            
-            margin:20px;
+            margin:150px 500px 100px 450px;
             padding: 20px;
             width:500px;
-            background-color: blue;
-            border:5px solid red;  /* change to white*/
+            background-color: black;
+            border:5px solid white;  
             
         }
+        /* fieldset:hover{
+            background-color: white;
+        } */
         .div1{
             margin:10px;
-            padding: 35px 80px 60px 80px ;
+            padding: 10px 80px 70px 80px ;
             width:300px; height: 80px;
             border: 3px solid black; 
-            background-color: white;
+            background-color: black;
 
         }
         .div2{
@@ -34,26 +37,24 @@
             padding: 35px 80px 120px 80px ;
             width:300px; height: 80px;
             border: 3px solid black; 
-            background-color: white;
+            background-color: black;
         }
         .div3{
             margin:10px;
-            padding: 35px 80px 30px 80px ;
+            padding: 25px 80px 70px 80px ;
             width:300px; height: 80px;
             border: 3px solid black; 
-            background-color: white;
+            background-color: black;
         }
         .divin{
             margin-top : 20px; 
-            border-bottom: 2px solid black;
-            
-
+            border-bottom: 2px solid white;
         }
         
         
         .t1{
-            color:black;
-            background-color: white;
+            color:white;
+            background-color: black;
             
         }
         p{
@@ -61,7 +62,7 @@
             font-size: 14px; 
             font-weight:500;
             padding-top:10px;
-            background-color: white;
+            background-color: black;
         }
         input{
             background-color: white;
@@ -69,7 +70,7 @@
         legend{
             color:white; 
             text-align: center;
-            font-size:70; 
+            font-size:80px; 
         }
         label{
 
@@ -79,14 +80,26 @@
         .span1{
             font-size:11px;
             padding-left:65px;
+            color:white;
         }
         .span2{
             font-size:11px;
             padding-left:65px;
+            color: white; 
         }
         .span3{
             font-size:11px;
             padding-left:65px;
+            color: white; 
+        }
+        label{
+            background-color: black;
+            color:grey;
+
+        }
+        .showpass{
+            color: white; 
+            font-size: 10px; 
         }
         
     </style>
@@ -98,7 +111,7 @@
             <!-- 姓名 -->
             <div class="div1">
                 <label class ="t1" for="name" >姓名:</label>
-                <input type="text" id="name" name="in1" onkeyup="nameCheck1(this.value)"></br>
+                <input type="text" id="name" name="in1" onkeyup="nameCheck1(this.value)"  size=15></br>
                 <span class ="span1" id="span1"></span>
                 <p>
                     <label class="nameCheckClass" >不可空白</label><br/>
@@ -111,7 +124,8 @@
             <!-- 密碼 -->
             <div class="div2">
                 <label class="t1" for="psw">密碼:</label>
-                <input type="text" id="ps" name="in2" onkeyup="passCheck1(this.value)"></br>
+                <input type="password" id="ps" name="in2" onkeyup="passCheck1(this.value)" size=15>
+                <input type="checkbox" onclick="showPass()"> <lable class="showpass" >顯示密碼</lable><br>
                 <span class="span2" id="span2"></span>
                 <p>
                     <label class="passwordCheck">6個字以上</label> <br/>
@@ -126,7 +140,7 @@
             <!-- 日期 -->
             <div class="div3">
                 <label class ="t1" >日期:</label>
-                <input type="text" id= "date" name="in3" size=19 
+                <input type="text" id= "date" name="in3" size=17 
                 onkeyup="dateCheck1(this.value), dateCheck3(this.value)"></br> 
 
                 <span id = "span3" class = "span3"></span>
@@ -182,7 +196,7 @@
                 let E = new RegExp(  '(?=.{1,})' );
                 let L = new RegExp(  '(?=.{2,})' );
                 if (E.test(NameVal) && L.test(NameVal) ){
-                    span.innerHTML= "You're User Name is valid";
+                    span.innerHTML= "Your User Name is valid";
                 }else{
                     span.innerHTML= "Please re-consider your User Name";
 
@@ -235,7 +249,7 @@
                 let S = new RegExp( '(?=.*[!@#\$%\^&\*])' );
                 if (L.test(pasVal) && UC.test(pasVal) && LC.test(pasVal)
                 && N.test(pasVal) && S.test(pasVal)){
-                    span.innerHTML= "You're password is valid";
+                    span.innerHTML= "Your password is valid";
                 }else{
                     span.innerHTML= "Please re-consider your password";
 
@@ -292,7 +306,7 @@
                     if(ddate ==datetoS){
                         span.innerHTML="Your date is valied";
                     }else {
-                        span.innerHTML="Date aint Exit";
+                        span.innerHTML="Date aint exit";
                     }       
                 }else  {
                     span3.innerHTML="Please check your date";
@@ -302,7 +316,7 @@
             function dateCheck3(data){
                 var dateClass = document.getElementsByClassName("dateCheckClass");
 
-                let date1 = new Date(date); 
+                let date1 = new Date(data); 
                     // console.log(dd) 
                     let ddYear = date1.getFullYear();
                     let ddMonth = date1.getMonth()+1;
@@ -317,14 +331,22 @@
                     let datetoS = ddYear+ "/" + ddMonth + "/" + ddDate; 
                     console.log(datetoS);
 
-                    if(date ==datetoS ){
+                    if(data == datetoS ){
                         dateClass[1].style.color="green";
                     }else {
                         dateClass[1].style.color="grey";
                     }
 
-               
+            }
 
+            //ShowPassword
+            function showPass(){
+                var passId = document.getElementById("ps"); 
+                if (passId.type=="password"){
+                    passId.type = "text";
+                }else {
+                    passId.type = "password"; 
+                }
             }
 
             
