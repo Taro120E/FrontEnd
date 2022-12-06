@@ -32,10 +32,16 @@
             alert(nsevent.type);
             alert(nsevent.button);
         }
-      
+
+
+       function mouseDown(nsevent) {  //以event物件作為參數來使用
+            //console.log(nsevent);
+            alert(nsevent.type);
+            alert(nsevent.button);
+        }
 
         //W3C DOM 事件處理程序(IE9以上)
-        //document.getElementById("idmouse2").addEventListener("mousedown", mouseDown);  //事件繫結                               
+        document.getElementById("idmouse2").addEventListener("mousedown", mouseDown);  //事件繫結                               
 
 
         //JavaScript屬性事件處理程序(IE8以下)

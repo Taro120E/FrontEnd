@@ -11,6 +11,7 @@
             padding:0px;
             background-color: black;
         }
+        
       
         fieldset{
            
@@ -21,9 +22,9 @@
             border:5px solid white;  
             
         }
-        /* fieldset:hover{
-            background-color: white;
-        } */
+        fieldset:hover{
+            background-color: #121212;
+        }
         .div1{
             margin:10px;
             padding: 10px 80px 70px 80px ;
@@ -73,7 +74,6 @@
             font-size:80px; 
         }
         label{
-
             padding-left: 24px;    
             /* border:1px solid black; */
         }
@@ -94,9 +94,9 @@
         }
         label{
             background-color: black;
-            color:grey;
 
         }
+ 
         .showpass{
             color: white; 
             font-size: 10px; 
@@ -171,20 +171,20 @@
                 
                 
                 if(E.test(data)){
-                    nameClass[0].style.color="green"; 
+                    nameClass[0].style.color="#00EC00"; 
                 }else{
-                    nameClass[0].style.color="grey";
+                    nameClass[0].style.color="#FF0000";
                 }
                 if(L.test(data)){
-                    nameClass[1].style.color="green"; 
+                    nameClass[1].style.color="#00EC00"; 
                 }else{
-                    nameClass[1].style.color="grey";
+                    nameClass[1].style.color="#FF0000";
                 }
                     // 中文驗證
                 if(C.test(data)){
-                    nameClass[2].style.color="green"; 
+                    nameClass[2].style.color="#00EC00"; 
                 }else{
-                    nameClass[2].style.color="grey";
+                    nameClass[2].style.color="#FF0000";
                 }
                 
                 
@@ -213,29 +213,29 @@
                 let S = new RegExp( '(?=.*[!@#\$%\^&\*])' );
 
                 if(L.test(data)){
-                    passClass[0].style.color = "green"; 
+                    passClass[0].style.color = "#00EC00"; 
                 }else{
-                    passClass[0].style.color = "grey"; 
+                    passClass[0].style.color = "#FF0000"; 
                 }
                 if(UC.test(data)){
-                    passClass[1].style.color = "green"; 
+                    passClass[1].style.color = "#00EC00"; 
                 }else{
-                    passClass[1].style.color = "grey"; 
+                    passClass[1].style.color = "#FF0000"; 
                 }
                 if(LC.test(data)){
-                    passClass[2].style.color = "green"; 
+                    passClass[2].style.color = "#00EC00"; 
                 }else{
-                    passClass[2].style.color = "grey"; 
+                    passClass[2].style.color = "#FF0000"; 
                 }
                 if(N.test(data)){
-                    passClass[3].style.color = "green"; 
+                    passClass[3].style.color = "#00EC00"; 
                 }else{
-                    passClass[3].style.color = "grey"; 
+                    passClass[3].style.color = "#FF0000"; 
                 }
                 if(S.test(data)){
-                    passClass[4].style.color = "green"; 
+                    passClass[4].style.color = "#00EC00"; 
                 }else{
-                    passClass[4].style.color = "grey"; 
+                    passClass[4].style.color = "#FF0000"; 
                 }
             }
             function passCheck2(){
@@ -267,9 +267,9 @@
                 let d =/^\d{4}\/\d{2}\/\d{2}$/
 
                 if(d.test(data)){
-                    dateClass[0].style.color="green";
+                    dateClass[0].style.color="#00EC00";
                 }else{
-                    dateClass[0].style.color="grey";
+                    dateClass[0].style.color="#FF0000";
                 }
 
             }
@@ -332,9 +332,9 @@
                     console.log(datetoS);
 
                     if(data == datetoS ){
-                        dateClass[1].style.color="green";
+                        dateClass[1].style.color="#00EC00";
                     }else {
-                        dateClass[1].style.color="grey";
+                        dateClass[1].style.color="#FF0000";
                     }
 
             }

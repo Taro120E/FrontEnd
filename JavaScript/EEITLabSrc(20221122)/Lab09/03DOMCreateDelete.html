@@ -8,9 +8,16 @@
 <body>
     <div id="iddiv">div</div>
     <input type="button" id="CEle" value="CreateElement">
+    <input type="button" id="DEle" value="DeleteElement">
 
     <script>
         document.querySelector("#CEle").addEventListener("click", CreateElement)
+        document.querySelector("#DEle").addEventListener("click", DeleteElement)
+
+        function DeleteElement(){
+            let theNode= document.getElementById("idImg");
+            theNode.remove();
+        }
 
         function CreateElement() {
             let theDIV = document.querySelector("#iddiv");  //取得div物件
@@ -19,13 +26,14 @@
             let txtP = document.createTextNode("Hello World");
             eleP.appendChild(txtP);
 
-            theDIV.appendChild(eleP);
+            theDIV.appendChild(eleP);5
 
             let eleImg = document.createElement("img");
             eleImg.setAttribute("src", "DOM/DOMImage/rabbit-hat.gif");
+            eleImg.setAttribute("id", "idImg");
 
             theDIV.appendChild(eleImg);
-        }
+        }j 
     </script>
 </body>
 </html>

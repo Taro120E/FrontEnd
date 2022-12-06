@@ -5,7 +5,7 @@
     <title>12formObject.html</title>
 </head>
 <body>
-    <form action="http://localhost:8080/get.jsp" method="get">
+    <form action="http://192.168.138.87:8080/get.jsp" method="get">
 			<label>name:</label><input type="text" name="txtName" value="abc" /><span id="idsp"></span><br/>
             <input type="checkbox" name="hobby" checked="checked" value="reading"/>
             <label>reading</label>
@@ -34,7 +34,11 @@
         }
 
         function submitf() {
-
+            if ( theName ==""){
+                document.getElementById("idsp").innerHTML="you must enter";
+            }else{
+                document.forms[0].submit();
+            }
         }
     </script>
 </body>

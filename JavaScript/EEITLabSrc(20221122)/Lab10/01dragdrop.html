@@ -44,6 +44,7 @@
         document.querySelector("#dropZone1").addEventListener("drop", dropHandler);
 
         function dragStartHandler(e) {
+            e.dataTransfer.setData("text/plain")
             //儲存要拖放的資料
 
         }
