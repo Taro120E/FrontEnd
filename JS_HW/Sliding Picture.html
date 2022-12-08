@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sliding Picture</title>
+    <style>
+   
+    </style>
+</head>
+<body>
+
+    <figure id="fig">
+        <img class="imgOG">
+    </figure>
+
+    <!-- <div id = "div2"></div>     -->
+
+    
+
+    <script>
+        let pics = new Array("lilbaby.jpg", "21.jpg" , "benny.jpg" , "menthod.jpg", "xxx.jpg");
+        let picsUrl = new Array("https://hiphopdx.com/reviews/id.3927/title.lil-baby-its-only-me-album-review" , "https://hiphopdx.com/reviews/id.2964/title.review-21-savage-attempts-to-stretch-his-musical-wings-on-issa" , "https://hiphopdx.com/reviews/id.3726/title.benny-the-butcher-harry-fraud-produced-plugs-i-met-2-mixes-vivid-lyricism-with-hypnotic-samples" , "https://hiphopdx.com/reviews/id.3771/title.isaiah-rashad-raps-with-precision-on-comeback-album-the-house-is-burning" , "https://hiphopdx.com/reviews/id.3888/title.xxxtentacion-look-at-me-album-review")
+
+        //把他們融再一起
+let obj = [
+    {},
+    {
+        src: "",
+        url: ""
+    },
+    {},
+];
+        setInterval(img, 1000);
+        let i=0; 
+
+        function img(){
+            document.getElementById("fig").innerHTML+= `<img src="Pic/${pics[i]}" width=150px href="${picsUrl[i]}">`
+            i++; 
+            if( i >=pics.length){
+                i=0;
+            }
+        
+    }
+
+        
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rating Stars</title>
+    <style>
+        *{
+            margin: 0 ; 
+            padding: 0 ; 
+            background-color: #000;
+        }
+        .div1{
+
+            font-size:70px; 
+            margin:200px 0px 50px 575px;
+            color:white;
+            width:350px;
+            border-bottom: 2px solid white;
+            text-align: center;
+        }
+        .starsdiv{
+            width:700px; 
+
+            margin:0px 500px 100px 400px; 
+        }
+        .div3{
+            font-size:25px; 
+            color: white;
+            width: 300px; 
+            margin :0px 0px 0px 580px;
+            padding: 5px; 
+            text-align: center;
+        }
+     
+    
+
+    </style>
+</head>
+<body>
+
+    <div class="div1">
+        <lable class="RS">Rating Stars</lable>
+    </div>
+
+    <div class="starsdiv">
+        <img id = "starId" class ="star" src="starW.gif">
+        <img id = "starId" class ="star" src="starW.gif">
+        <img id = "starId" class ="star" src="starW.gif">
+        <img id = "starId" class ="star" src="starW.gif">
+        <img id = "starId" class ="star" src="starW.gif"> 
+    </div>
+    <div class="div3">
+        <p class="spanC" id="spanI1">請點擊評分</p>
+    </div>
+
+
+    <script>
+
+        let imgArra = document.getElementsByClassName("star");
+        for(let arra of imgArra){
+            arra.addEventListener("mouseover", mover); 
+            arra.addEventListener("mouseout", mout); 
+            arra.addEventListener("click", click);
+            arra.addEventListener("dblclick", dbleclick); 
+            arra.addEventListener("dblclick", checking); 
+        }
+
+        let check = 0; 
+        let s1= document.getElementById("spanI1"); 
+        let s2= document.getElementById("spanI2"); 
+
+        
+ 
+        function mover(){
+            if(check==0){
+
+                for ( let i =0 ; i <imgArra.length; i ++){
+                    if(this == imgArra[i]){
+                        for(let n = 0 ; n < imgArra.length; n++){
+                            if(n<=i){
+                                imgArra[n].src="starG.gif";   
+                            }
+                        }   
+                    }
+                }
+                
+            }
+            }
+        function mout(){
+            if (check==0){
+
+                for ( let i =0 ; i <imgArra.length; i ++){
+                    if(this == imgArra[i]){
+                        for(let n = 0 ; n < imgArra.length; n++){
+                            if(n<=i){
+                                imgArra[n].src="starW.gif";   
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        function click(){
+            for ( let i =0 ; i <imgArra.length; i ++){
+                if(this == imgArra[i]){
+                    s1.innerHTML = (i+1)+"顆星" + "(雙擊以重新評分)";
+                    for(let n = 0 ; n < imgArra.length; n++){
+                            if(n<=i){
+                                imgArra[n].src="starG.gif";   
+                            }else{
+                                imgArra[n].src="starW.gif"; 
+                            }
+                        }   
+                }
+            }
+            check =1; 
+        }
+        function dbleclick(){
+            for ( let i =0 ; i <imgArra.length; i ++){
+                if(this == imgArra[i]){
+                    for(let n = 0 ; n < imgArra.length; n++){
+                            if(n<=i){
+                                imgArra[n].src="starW.gif";   
+
+                            }
+                        }   
+                }
+            }
+            check = 0 ; 
+        }
+
+        function checking(){
+         if(check == 0 ){
+            for (let i =0 ; i <imgArra.length; i ++ )
+            imgArra[i].src="starW.gif";
+            s1.innerHTML = "請點擊評分";
+        }
+    }
+
+
+
+    </script>
+
+
+    
+</body>
+</html>
