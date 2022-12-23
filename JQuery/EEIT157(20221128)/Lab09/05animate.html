@@ -24,7 +24,16 @@
             //向上移動到0px的位置(top:0)
             //寬度調整成-150px(width:-150)
             //不透明度調整成0.3(opacity:0.3)
-            //瀏覽網頁看看效果                    
+            //瀏覽網頁看看效果          
+            
+            $(this).animate({
+                "left":"50px",
+                top:0,
+                width:"-=50px",
+                opacity:0.7
+            },10000,function(){
+                $(this).hide();
+            })
             
             
         });                      

@@ -20,10 +20,15 @@
 
     <script src="../js/jquery-3.6.1.min.js"></script>
     <script>       
+
+        $("#idlink").click(function(event){
+    event.preventDefault();
+        })
         //在文件的contextmenu事件，取消預設的動作(preventDefault)
         $(document).contextmenu(function(event){
-            
-        });                            
+            event.preventDefault();
+        });   
+                                   
     </script>
 </body>
 </html>

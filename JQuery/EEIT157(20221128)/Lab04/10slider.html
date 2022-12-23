@@ -31,13 +31,13 @@
         ul.slides li{
             width:800px;
             height:300px;
-            overflow: hidden;
+            overflow: hidden; 
             float: left;
         }
         ul.slides li img{
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; /*Pic Ratio*/
         }
         .dot{
             bottom:10px;
@@ -52,9 +52,9 @@
             width:24px;
             height: 10px;
         }
-        .dot li:hover{
+        /* .dot li:hover{
             background: #fff;
-        }
+        } */
         .slide_btn{
             display: flex;
             justify-content: center;
@@ -110,6 +110,53 @@
         let slideCount=$(".slides li").length;
         let lastIndex=slideCount-1;
         console.log(slideCount);
+
+        $(".dot li").eq(0).css("background-color", "white")
+
+        var play = setInterval(img,2000);
+
+        $(".dot li").mouseenter(function(){
+            slideNum=$(this).index();
+            show();
+            clearInterval(play); 
+        })
+        $(".dot li").mouseleave(function(){
+            setInterval(img,2000);
+
+        })
+
+
+
+    function show(){
+        $(".dot li").eq(slideNum).css("background-color", "white")
+        .siblings().css("background-color", "transparent")
+
+        let slidemove=0-800*slideNum;
+        $("ul.slides").css("left",slidemove); 
+    }
+
+        $("#prevSlide").click(function(){
+            slideNum--;
+            if(slideNum<0) slideNum=lastIndex;
+            show();
+        })
+        $("#nextSlide").click(function(){
+            slideNum++;
+            if(slideNum>lastIndex) slideNum=0;
+            show();
+        })
+
+        function img(){
+            slideNum++;
+            show();
+            slidNum>=lastIndex? slideNum=-1 : slideNum=slideNum; 
+        }
+
+    
+
+
+
+
 
                             
            

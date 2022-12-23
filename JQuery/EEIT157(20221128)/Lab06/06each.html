@@ -17,8 +17,11 @@
 
     <script src="../js/jquery-3.6.1.min.js"></script>
     <script>
-        $("#btn1").click(function(){                             
+        $("#btn1").click(function(){    
+                                     
             $("li").each(function(index,element){
+                let t = $(this).text(); 
+                $("#demo").append(`<li>${t}</li>`)
                                                             
             });                  
         });

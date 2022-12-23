@@ -49,6 +49,11 @@
       <script>
         $("figure").click(function(){
 
+
+            let r=$(this).find("img").attr("src"); 
+            $("#mainPic").attr("src",r);
+            $(this).addClass("active").siblings().removeClass("active")
+
             
         });
     </script>

@@ -13,7 +13,10 @@
         #div1 {
             position: absolute;
             width: 400px;
-            height: 300px;                                
+            height: 300px;     
+            /* padding:10px;
+            border:1px solid red;      
+            margin:10px;                        */   
         }       
     </style>
     
@@ -32,7 +35,15 @@
         $(window).resize(move_div);
 
         function move_div() {
-            
+            let windowHeight=$(this).height();
+            let windowWidth=$(this).width();
+            let objHeight=$("#div1").height();
+            let objWidth=$("#div1").width();
+
+            let top = (windowHeight-objHeight)/2;
+            let left = (windowWidth-objWidth)/2;
+
+            $("#div").css("top",top).css("left",left);
         }   
     </script>
 </body>

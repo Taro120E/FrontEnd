@@ -50,13 +50,20 @@
         $("#idSel").change(function(){
             console.log("change");
             //讀取option的值
+            let opt =$("select>option:selected");
+            $("#demo").text(`index=${opt.index()},value=${opt.val()},text=${opt.text()}`)
             
                     
         });
         
         //submit
         $("#idbtn").click(function(){
-            console.log("submit");                                               
+            console.log("submit"); 
+            if($("#idInp").val()==""){
+                $("#demo").text("You must enter")
+            }else{
+                $("form").submit(); 
+            }                                        
 
         });
 
